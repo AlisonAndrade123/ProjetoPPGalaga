@@ -12,7 +12,8 @@ export default class EnemyFactory {
         const enemy = document.createElement('img');
         const randomImageSrc = this.enemyImages[Math.floor(Math.random() * this.enemyImages.length)];
         
-        enemy.src = `assets/${randomImageSrc}`;
+        enemy.src = `img/${randomImageSrc}`;
+        
         enemy.classList.add('enemy');
         
         const gameAreaWidth = this.gameArea.offsetWidth;
