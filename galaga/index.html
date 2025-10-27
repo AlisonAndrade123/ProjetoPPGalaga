@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaga JS - Arquitetura Profissional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="content" id="gameArea">
+        <h1>Galaga com Padrões de Projeto</h1>
+        <p id="scoreDisplay">Pontos: 0</p>
+        <p id="livesDisplay">Vidas: 5</p>
+        
+        <div class="bottom-rocket" id="rocketContainer">
+            <img src="assets/foguete.png" alt="Foguete" id="rocket">
+        </div>
+
+        <div id="gameOverScreen" class="hidden">
+            <h2>GAME OVER!</h2>
+            <p id="finalScore"></p>
+            <button id="restartButton">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
