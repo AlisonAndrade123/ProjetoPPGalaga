@@ -1,11 +1,15 @@
-// Padrão: Dependency Injection (recebe os elementos do DOM e a área do jogo)
+// js/Player.js - ATUALIZADO para tocar som de tiro
+
+// Padrão: Dependency Injection (recebe os elementos do DOM, a área do jogo e o audioManager)
 import GameState from './GameState.js'; 
 
 export default class Player {
-    constructor(rocketElement, rocketContainer, gameArea) {
+    // 1. ATUALIZA O CONSTRUTOR para receber o audioManager
+    constructor(rocketElement, rocketContainer, gameArea, audioManager) {
         this.rocket = rocketElement;
         this.rocketContainer = rocketContainer;
         this.gameArea = gameArea;
+        this.audioManager = audioManager; // Armazena a referência ao gerenciador de áudio
         
         this.moveSpeed = 8; 
         this.projectileSpeed = 15;
@@ -68,6 +72,9 @@ export default class Player {
     }
 
     createProjectile() {
+        // 2. TOCA O SOM DE TIRO no momento da criação do projétil
+        this.audioManager.playLaserSound();
+
         this.canShoot = false;
         const projectile = document.createElement('div');
         projectile.classList.add('projectile');
