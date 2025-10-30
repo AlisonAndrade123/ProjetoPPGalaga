@@ -1,5 +1,4 @@
-// Padrão: Factory
-// Padrão: Dependency Injection (recebe a gameArea e as imagens)
+// Implementa o padrão Factory, centralizando a lógica de criação de inimigos.
 
 export default class EnemyFactory {
     constructor(gameArea, enemyImages) {

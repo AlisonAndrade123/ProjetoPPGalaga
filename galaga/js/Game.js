@@ -1,13 +1,12 @@
-// js/Game.js - VERSÃO CORRIGIDA
+// Implementa o padrão Facade, atuando como o orquestrador central que gerencia o ciclo de vida e as interações do jogo.
 
 export default class Game {
-    // O construtor agora recebe o audioManager
     constructor(gameArea, player, enemyFactory, gameState, audioManager) {
         this.gameArea = gameArea;
         this.player = player;
         this.enemyFactory = enemyFactory;
         this.gameState = gameState;
-        this.audioManager = audioManager; // Armazena o audioManager
+        this.audioManager = audioManager; 
 
         this.enemies = [];
         this.enemySpeed = 1.5;
@@ -73,7 +72,6 @@ export default class Game {
         }
     }
 
-    // --- MÉTODO detectCollisions CORRIGIDO ---
     detectCollisions() {
         for (let i = 0; i < this.player.projectiles.length; i++) {
             const projectile = this.player.projectiles[i];
@@ -83,16 +81,13 @@ export default class Game {
                 const enemy = this.enemies[j];
                 const enemyRect = enemy.getBoundingClientRect();
                 
-                // A condição 'if' completa e correta
                 if (projectileRect.left < enemyRect.right &&
                     projectileRect.right > enemyRect.left &&
                     projectileRect.top < enemyRect.bottom &&
                     projectileRect.bottom > enemyRect.top) {
                     
-                    // Pede para o som de explosão tocar
                     this.audioManager.playExplosionSound();
 
-                    // Remove o projétil e o inimigo
                     projectile.remove();
                     this.player.projectiles.splice(i, 1);
                     i--;
@@ -101,9 +96,8 @@ export default class Game {
                     this.enemies.splice(j, 1);
                     j--;
                     
-                    // Adiciona pontuação
                     this.gameState.addScore(10);
-                    break; // Sai do loop de inimigos, pois o projétil já foi destruído
+                    break; 
                 }
             }
         }

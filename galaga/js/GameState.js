@@ -1,4 +1,4 @@
-// Padrões: Singleton e Observer
+// Implementa os padrões Singleton e Observer para gerenciar o estado global do jogo.
 
 let instance = null;
 

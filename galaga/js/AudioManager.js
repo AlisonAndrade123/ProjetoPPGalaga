@@ -1,20 +1,16 @@
-// js/AudioManager.js - ATUALIZADO com som de tiro
-
-// Padrão: Observer (atuando como um observador do GameState)
-// Padrão: Dependency Injection (agora recebe quatro elementos de áudio)
+// Atua como um Observer do GameState e gerencia a reprodução de todos os sons do jogo.
 
 export default class AudioManager {
     constructor(backgroundMusicElement, gameOverSoundElement, explosionSoundElement, laserSoundElement) {
         this.backgroundMusic = backgroundMusicElement;
         this.gameOverSound = gameOverSoundElement;
         this.explosionSound = explosionSoundElement;
-        this.laserSound = laserSoundElement; // 1. ARMAZENA O NOVO SOM DE TIRO
+        this.laserSound = laserSoundElement; 
         
         this.isUserInteracted = false;
         this.wasGameOver = false;
     }
 
-    // O método update continua o mesmo, pois gerencia o estado GERAL do jogo.
     update(gameState) {
         if (!this.isUserInteracted) return;
 
@@ -37,7 +33,6 @@ export default class AudioManager {
         this.explosionSound.play();
     }
 
-    // --- 2. NOVO MÉTODO PARA TOCAR O SOM DE TIRO ---
     playLaserSound() {
         this.laserSound.currentTime = 0;
         this.laserSound.play();

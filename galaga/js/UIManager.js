@@ -1,6 +1,4 @@
-// (Observer) Atualiza a tela (placar, vidas, game over).
-// Padrão: Observer (atuando como um observador)
-// Padrão: Dependency Injection (recebe os elementos do DOM)
+// Atua como um Observer do GameState, com a única responsabilidade de atualizar a interface do usuário (DOM).
 
 export default class UIManager {
     constructor(scoreDisplay, livesDisplay, gameOverScreen, finalScoreDisplay) {
